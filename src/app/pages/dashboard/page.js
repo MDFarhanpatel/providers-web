@@ -109,24 +109,19 @@ export default function ProviderKycForm() {
 
     try {
       const data = new FormData();
-      // KYC section
       data.append("fullName", formData.fullName);
       data.append("dob", formData.dob);
       data.append("address", formData.address);
       data.append("city", formData.city);
       data.append("state", formData.state);
       data.append("zipcode", formData.zipcode);
-      // PAN section
       data.append("panNumber", formData.panNumber);
       data.append("panCardFile", formData.panCardFile);
-      // License section
       data.append("licenseNumber", formData.licenseNumber);
       data.append("licenseCardFile", formData.licenseCardFile);
-      // Provider image
       data.append("providerImage", formData.providerImage);
 
-      // TODO: Replace API call below with your backend API endpoint
-      // await fetch('/api/provider/kyc', { method: 'POST', body: data });
+      // TODO: API call here
 
       toast.current.show({
         severity: "success",
@@ -135,7 +130,6 @@ export default function ProviderKycForm() {
         life: 3000,
       });
 
-      // Optionally redirect to dashboard or another page
       // router.push('/dashboard');
     } catch (error) {
       toast.current.show({
@@ -150,23 +144,23 @@ export default function ProviderKycForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 p-4 flex items-center justify-center overflow-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 p-2 flex items-center justify-center overflow-auto">
       <Toast ref={toast} />
-      <div className="w-full max-w-4xl bg-white rounded-xl shadow-xl p-6 sm:p-8 space-y-10 max-h-[90vh] overflow-auto">
-        <h2 className="text-3xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent mb-10">
+      <div className="w-full max-w-4xl bg-white rounded-xl shadow-xl p-4 sm:p-6 space-y-8 max-h-[90vh] overflow-auto">
+        <h2 className="text-xl sm:text-2xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent mb-6 sm:mb-8">
           Provider KYC Details
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-12">
-          {/* KYC Details Section without FloatLabel and gray bg */}
-          <section className="bg-gray-50 border border-gray-300 rounded-lg p-6">
-            <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
+        <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-10">
+          {/* KYC Section */}
+          <section className="bg-gray-50 border border-gray-300 rounded-lg p-4 sm:p-5">
+            <h3 className="text-lg sm:text-xl font-semibold border-b border-gray-200 mb-4 sm:mb-6 pb-1">
               KYC Details
             </h3>
-            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-6">
-              <div className="mb-4 sm:mb-0">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-4">
+              <div className="mb-3 sm:mb-0">
                 <label
                   htmlFor="fullName"
-                  className="block text-gray-700 font-semibold text-sm mb-1"
+                  className="block text-gray-700 font-semibold text-xs sm:text-sm mb-1"
                 >
                   Full Name *
                 </label>
@@ -175,14 +169,13 @@ export default function ProviderKycForm() {
                   value={formData.fullName}
                   onChange={(e) => handleInputChange("fullName", e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm"
                 />
               </div>
-
-              <div className="mb-4 sm:mb-0">
+              <div className="mb-3 sm:mb-0">
                 <label
                   htmlFor="dob"
-                  className="block text-gray-700 font-semibold text-sm mb-1"
+                  className="block text-gray-700 font-semibold text-xs sm:text-sm mb-1"
                 >
                   Date of Birth *
                 </label>
@@ -192,14 +185,13 @@ export default function ProviderKycForm() {
                   value={formData.dob}
                   onChange={(e) => handleInputChange("dob", e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm"
                 />
               </div>
-
-              <div className="sm:col-span-2 mb-4">
+              <div className="sm:col-span-2 mb-3">
                 <label
                   htmlFor="address"
-                  className="block text-gray-700 font-semibold text-sm mb-1"
+                  className="block text-gray-700 font-semibold text-xs sm:text-sm mb-1"
                 >
                   Address *
                 </label>
@@ -209,14 +201,13 @@ export default function ProviderKycForm() {
                   onChange={(e) => handleInputChange("address", e.target.value)}
                   rows={3}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 rounded resize-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm"
                 />
               </div>
-
-              <div className="mb-4 sm:mb-0">
+              <div className="mb-3 sm:mb-0">
                 <label
                   htmlFor="city"
-                  className="block text-gray-700 font-semibold text-sm mb-1"
+                  className="block text-gray-700 font-semibold text-xs sm:text-sm mb-1"
                 >
                   City *
                 </label>
@@ -225,14 +216,13 @@ export default function ProviderKycForm() {
                   value={formData.city}
                   onChange={(e) => handleInputChange("city", e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm"
                 />
               </div>
-
-              <div className="mb-4 sm:mb-0">
+              <div className="mb-3 sm:mb-0">
                 <label
                   htmlFor="state"
-                  className="block text-gray-700 font-semibold text-sm mb-1"
+                  className="block text-gray-700 font-semibold text-xs sm:text-sm mb-1"
                 >
                   State *
                 </label>
@@ -241,14 +231,13 @@ export default function ProviderKycForm() {
                   value={formData.state}
                   onChange={(e) => handleInputChange("state", e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm"
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="zipcode"
-                  className="block text-gray-700 font-semibold text-sm mb-1"
+                  className="block text-gray-700 font-semibold text-xs sm:text-sm mb-1"
                 >
                   ZIP Code *
                 </label>
@@ -257,32 +246,32 @@ export default function ProviderKycForm() {
                   value={formData.zipcode}
                   onChange={(e) => handleInputChange("zipcode", e.target.value)}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-xs sm:text-sm"
                 />
               </div>
             </div>
           </section>
 
           {/* PAN Card Section */}
-          <section className="border border-gray-300 rounded-lg p-6">
-            <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
+          <section className="border border-gray-300 rounded-lg p-4 sm:p-5">
+            <h3 className="text-lg sm:text-xl font-semibold border-b border-gray-200 mb-4 sm:mb-6 pb-1">
               PAN Card Details
             </h3>
-            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-6 items-center">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-4 items-center">
               <FloatLabel>
                 <InputText
                   id="panNumber"
                   value={formData.panNumber}
                   onChange={(e) => handleInputChange("panNumber", e.target.value)}
                   required
-                  className="w-full px-3 py-2"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm"
                 />
-                <label htmlFor="panNumber" className="text-gray-700 text-sm font-semibold">
+                <label htmlFor="panNumber" className="text-gray-700 text-xs sm:text-sm font-semibold">
                   PAN Number *
                 </label>
               </FloatLabel>
               <div className="w-full">
-                <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="panCardFile">
+                <label className="block mb-2 text-gray-700 text-xs sm:text-sm font-semibold" htmlFor="panCardFile">
                   Upload PAN Card Scan *
                 </label>
                 <input
@@ -290,36 +279,34 @@ export default function ProviderKycForm() {
                   id="panCardFile"
                   accept="image/*,application/pdf"
                   onChange={(e) => handleFileSelect("panCardFile", e.target.files)}
-                  className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
+                  className="block w-full p-2 border border-gray-300 rounded cursor-pointer text-xs sm:text-sm"
                   required
                 />
-                {formData.panCardFile && (
-                  <p className="mt-1 text-sm text-green-600 truncate">{formData.panCardFile.name}</p>
-                )}
+                {formData.panCardFile && <p className="mt-1 text-xs sm:text-sm text-green-600 truncate">{formData.panCardFile.name}</p>}
               </div>
             </div>
           </section>
 
           {/* License Card Section */}
-          <section className="border border-gray-300 rounded-lg p-6">
-            <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
+          <section className="border border-gray-300 rounded-lg p-4 sm:p-5">
+            <h3 className="text-lg sm:text-xl font-semibold border-b border-gray-200 mb-4 sm:mb-6 pb-1">
               License Card Details
             </h3>
-            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-6 items-center">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-4 items-center">
               <FloatLabel>
                 <InputText
                   id="licenseNumber"
                   value={formData.licenseNumber}
                   onChange={(e) => handleInputChange("licenseNumber", e.target.value)}
                   required
-                  className="w-full px-3 py-2"
+                  className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm"
                 />
-                <label htmlFor="licenseNumber" className="text-gray-700 text-sm font-semibold">
+                <label htmlFor="licenseNumber" className="text-gray-700 text-xs sm:text-sm font-semibold">
                   License Number *
                 </label>
               </FloatLabel>
               <div className="w-full">
-                <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="licenseCardFile">
+                <label className="block mb-2 text-gray-700 text-xs sm:text-sm font-semibold" htmlFor="licenseCardFile">
                   Upload License Card Scan *
                 </label>
                 <input
@@ -327,23 +314,21 @@ export default function ProviderKycForm() {
                   id="licenseCardFile"
                   accept="image/*,application/pdf"
                   onChange={(e) => handleFileSelect("licenseCardFile", e.target.files)}
-                  className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
+                  className="block w-full p-2 border border-gray-300 rounded cursor-pointer text-xs sm:text-sm"
                   required
                 />
-                {formData.licenseCardFile && (
-                  <p className="mt-1 text-sm text-green-600 truncate">{formData.licenseCardFile.name}</p>
-                )}
+                {formData.licenseCardFile && <p className="mt-1 text-xs sm:text-sm text-green-600 truncate">{formData.licenseCardFile.name}</p>}
               </div>
             </div>
           </section>
 
           {/* Provider Image Upload Section */}
-          <section className="border border-gray-300 rounded-lg p-6">
-            <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
+          <section className="border border-gray-300 rounded-lg p-4 sm:p-5">
+            <h3 className="text-lg sm:text-xl font-semibold border-b border-gray-200 mb-4 sm:mb-6 pb-1">
               Provider Image Upload
             </h3>
             <div>
-              <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="providerImage">
+              <label className="block mb-2 text-gray-700 text-xs sm:text-sm font-semibold" htmlFor="providerImage">
                 Upload Provider Image *
               </label>
               <input
@@ -351,14 +336,10 @@ export default function ProviderKycForm() {
                 id="providerImage"
                 accept="image/*"
                 onChange={(e) => handleFileSelect("providerImage", e.target.files)}
-                className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
+                className="block w-full p-2 border border-gray-300 rounded cursor-pointer text-xs sm:text-sm"
                 required
               />
-              {formData.providerImage && (
-                <p className="mt-1 text-sm text-green-600 truncate">
-                  {formData.providerImage.name}
-                </p>
-              )}
+              {formData.providerImage && <p className="mt-1 text-xs sm:text-sm text-green-600 truncate">{formData.providerImage.name}</p>}
             </div>
           </section>
 
@@ -367,7 +348,7 @@ export default function ProviderKycForm() {
             <Button
               type="submit"
               label={loading ? "Submitting..." : "Submit KYC"}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold py-3 rounded-lg shadow"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold py-2 sm:py-3 rounded-lg shadow text-xs sm:text-base"
               disabled={loading}
             />
           </div>
