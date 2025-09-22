@@ -157,115 +157,91 @@ export default function ProviderKycForm() {
           Provider KYC Details
         </h2>
         <form onSubmit={handleSubmit} className="space-y-12">
-          {/* KYC Details Section */}
-          <section className="border border-gray-300 rounded-lg p-6">
+          {/* KYC Details Section without FloatLabel and with grayish bg */}
+          <section className="bg-gray-50 border border-gray-300 rounded-lg p-6">
             <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
               KYC Details
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <FloatLabel>
+              <div>
+                <label htmlFor="fullName" className="block text-gray-700 font-semibold text-sm mb-1">
+                  Full Name *
+                </label>
                 <InputText
                   id="fullName"
                   value={formData.fullName}
                   onChange={(e) => handleInputChange("fullName", e.target.value)}
                   required
-                  className="w-full px-3 py-2"
-                  autoComplete="name"
+                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <label
-                  htmlFor="fullName"
-                  className="text-gray-700 text-sm font-semibold"
-                >
-                  Full Name *
-                </label>
-              </FloatLabel>
+              </div>
 
-              <FloatLabel>
+              <div>
+                <label htmlFor="dob" className="block text-gray-700 font-semibold text-sm mb-1">
+                  Date of Birth *
+                </label>
                 <InputText
                   id="dob"
                   type="date"
                   value={formData.dob}
                   onChange={(e) => handleInputChange("dob", e.target.value)}
                   required
-                  className="w-full px-3 py-2"
-                  autoComplete="bday"
+                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <label
-                  htmlFor="dob"
-                  className="text-gray-700 text-sm font-semibold"
-                >
-                  Date of Birth *
-                </label>
-              </FloatLabel>
+              </div>
 
-              <FloatLabel className="sm:col-span-2">
+              <div className="sm:col-span-2">
+                <label htmlFor="address" className="block text-gray-700 font-semibold text-sm mb-1">
+                  Address *
+                </label>
                 <InputTextarea
                   id="address"
                   value={formData.address}
                   onChange={(e) => handleInputChange("address", e.target.value)}
                   rows={3}
                   required
-                  className="w-full px-3 py-2"
-                  autoComplete="street-address"
+                  className="w-full px-3 py-2 border border-gray-300 rounded resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <label
-                  htmlFor="address"
-                  className="text-gray-700 text-sm font-semibold"
-                >
-                  Address *
-                </label>
-              </FloatLabel>
+              </div>
 
-              <FloatLabel>
+              <div>
+                <label htmlFor="city" className="block text-gray-700 font-semibold text-sm mb-1">
+                  City *
+                </label>
                 <InputText
                   id="city"
                   value={formData.city}
                   onChange={(e) => handleInputChange("city", e.target.value)}
                   required
-                  className="w-full px-3 py-2"
-                  autoComplete="address-level2"
+                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <label
-                  htmlFor="city"
-                  className="text-gray-700 text-sm font-semibold"
-                >
-                  City *
-                </label>
-              </FloatLabel>
+              </div>
 
-              <FloatLabel>
+              <div>
+                <label htmlFor="state" className="block text-gray-700 font-semibold text-sm mb-1">
+                  State *
+                </label>
                 <InputText
                   id="state"
                   value={formData.state}
                   onChange={(e) => handleInputChange("state", e.target.value)}
                   required
-                  className="w-full px-3 py-2"
-                  autoComplete="address-level1"
+                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <label
-                  htmlFor="state"
-                  className="text-gray-700 text-sm font-semibold"
-                >
-                  State *
-                </label>
-              </FloatLabel>
+              </div>
 
-              <FloatLabel>
+              <div>
+                <label htmlFor="zipcode" className="block text-gray-700 font-semibold text-sm mb-1">
+                  ZIP Code *
+                </label>
                 <InputText
                   id="zipcode"
                   value={formData.zipcode}
                   onChange={(e) => handleInputChange("zipcode", e.target.value)}
                   required
-                  className="w-full px-3 py-2"
-                  autoComplete="postal-code"
+                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <label
-                  htmlFor="zipcode"
-                  className="text-gray-700 text-sm font-semibold"
-                >
-                  ZIP Code *
-                </label>
-              </FloatLabel>
+              </div>
             </div>
           </section>
 
@@ -282,20 +258,13 @@ export default function ProviderKycForm() {
                   onChange={(e) => handleInputChange("panNumber", e.target.value)}
                   required
                   className="w-full px-3 py-2"
-                  autoComplete="off"
                 />
-                <label
-                  htmlFor="panNumber"
-                  className="text-gray-700 text-sm font-semibold"
-                >
+                <label htmlFor="panNumber" className="text-gray-700 text-sm font-semibold">
                   PAN Number *
                 </label>
               </FloatLabel>
               <div>
-                <label
-                  className="block mb-2 text-gray-700 text-sm font-semibold"
-                  htmlFor="panCardFile"
-                >
+                <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="panCardFile">
                   Upload PAN Card Scan *
                 </label>
                 <input
@@ -306,11 +275,7 @@ export default function ProviderKycForm() {
                   className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
                   required
                 />
-                {formData.panCardFile && (
-                  <p className="mt-1 text-sm text-green-600 truncate">
-                    {formData.panCardFile.name}
-                  </p>
-                )}
+                {formData.panCardFile && <p className="mt-1 text-sm text-green-600 truncate">{formData.panCardFile.name}</p>}
               </div>
             </div>
           </section>
@@ -325,42 +290,27 @@ export default function ProviderKycForm() {
                 <InputText
                   id="licenseNumber"
                   value={formData.licenseNumber}
-                  onChange={(e) =>
-                    handleInputChange("licenseNumber", e.target.value)
-                  }
+                  onChange={(e) => handleInputChange("licenseNumber", e.target.value)}
                   required
                   className="w-full px-3 py-2"
-                  autoComplete="off"
                 />
-                <label
-                  htmlFor="licenseNumber"
-                  className="text-gray-700 text-sm font-semibold"
-                >
+                <label htmlFor="licenseNumber" className="text-gray-700 text-sm font-semibold">
                   License Number *
                 </label>
               </FloatLabel>
               <div>
-                <label
-                  className="block mb-2 text-gray-700 text-sm font-semibold"
-                  htmlFor="licenseCardFile"
-                >
+                <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="licenseCardFile">
                   Upload License Card Scan *
                 </label>
                 <input
                   type="file"
                   id="licenseCardFile"
                   accept="image/*,application/pdf"
-                  onChange={(e) =>
-                    handleFileSelect("licenseCardFile", e.target.files)
-                  }
+                  onChange={(e) => handleFileSelect("licenseCardFile", e.target.files)}
                   className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
                   required
                 />
-                {formData.licenseCardFile && (
-                  <p className="mt-1 text-sm text-green-600 truncate">
-                    {formData.licenseCardFile.name}
-                  </p>
-                )}
+                {formData.licenseCardFile && <p className="mt-1 text-sm text-green-600 truncate">{formData.licenseCardFile.name}</p>}
               </div>
             </div>
           </section>
@@ -371,10 +321,7 @@ export default function ProviderKycForm() {
               Provider Image Upload
             </h3>
             <div>
-              <label
-                className="block mb-2 text-gray-700 text-sm font-semibold"
-                htmlFor="providerImage"
-              >
+              <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="providerImage">
                 Upload Provider Image *
               </label>
               <input
@@ -385,11 +332,7 @@ export default function ProviderKycForm() {
                 className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
                 required
               />
-              {formData.providerImage && (
-                <p className="mt-1 text-sm text-green-600 truncate">
-                  {formData.providerImage.name}
-                </p>
-              )}
+              {formData.providerImage && <p className="mt-1 text-sm text-green-600 truncate">{formData.providerImage.name}</p>}
             </div>
           </section>
 
