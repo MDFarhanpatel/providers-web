@@ -150,21 +150,24 @@ export default function ProviderKycForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 p-8 flex items-center justify-center overflow-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 p-4 flex items-center justify-center overflow-auto">
       <Toast ref={toast} />
-      <div className="w-full max-w-4xl bg-white rounded-xl shadow-xl p-8 space-y-10 max-h-[90vh] overflow-auto">
-        <h2 className="text-3xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+      <div className="w-full max-w-4xl bg-white rounded-xl shadow-xl p-6 sm:p-8 space-y-10 max-h-[90vh] overflow-auto">
+        <h2 className="text-3xl font-extrabold text-center bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent mb-10">
           Provider KYC Details
         </h2>
         <form onSubmit={handleSubmit} className="space-y-12">
-          {/* KYC Details Section without FloatLabel and with grayish bg */}
+          {/* KYC Details Section without FloatLabel and gray bg */}
           <section className="bg-gray-50 border border-gray-300 rounded-lg p-6">
             <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
               KYC Details
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="fullName" className="block text-gray-700 font-semibold text-sm mb-1">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-6">
+              <div className="mb-4 sm:mb-0">
+                <label
+                  htmlFor="fullName"
+                  className="block text-gray-700 font-semibold text-sm mb-1"
+                >
                   Full Name *
                 </label>
                 <InputText
@@ -176,8 +179,11 @@ export default function ProviderKycForm() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="dob" className="block text-gray-700 font-semibold text-sm mb-1">
+              <div className="mb-4 sm:mb-0">
+                <label
+                  htmlFor="dob"
+                  className="block text-gray-700 font-semibold text-sm mb-1"
+                >
                   Date of Birth *
                 </label>
                 <InputText
@@ -190,8 +196,11 @@ export default function ProviderKycForm() {
                 />
               </div>
 
-              <div className="sm:col-span-2">
-                <label htmlFor="address" className="block text-gray-700 font-semibold text-sm mb-1">
+              <div className="sm:col-span-2 mb-4">
+                <label
+                  htmlFor="address"
+                  className="block text-gray-700 font-semibold text-sm mb-1"
+                >
                   Address *
                 </label>
                 <InputTextarea
@@ -204,8 +213,11 @@ export default function ProviderKycForm() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="city" className="block text-gray-700 font-semibold text-sm mb-1">
+              <div className="mb-4 sm:mb-0">
+                <label
+                  htmlFor="city"
+                  className="block text-gray-700 font-semibold text-sm mb-1"
+                >
                   City *
                 </label>
                 <InputText
@@ -217,8 +229,11 @@ export default function ProviderKycForm() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="state" className="block text-gray-700 font-semibold text-sm mb-1">
+              <div className="mb-4 sm:mb-0">
+                <label
+                  htmlFor="state"
+                  className="block text-gray-700 font-semibold text-sm mb-1"
+                >
                   State *
                 </label>
                 <InputText
@@ -231,7 +246,10 @@ export default function ProviderKycForm() {
               </div>
 
               <div>
-                <label htmlFor="zipcode" className="block text-gray-700 font-semibold text-sm mb-1">
+                <label
+                  htmlFor="zipcode"
+                  className="block text-gray-700 font-semibold text-sm mb-1"
+                >
                   ZIP Code *
                 </label>
                 <InputText
@@ -250,7 +268,7 @@ export default function ProviderKycForm() {
             <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
               PAN Card Details
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-6 items-center">
               <FloatLabel>
                 <InputText
                   id="panNumber"
@@ -263,7 +281,7 @@ export default function ProviderKycForm() {
                   PAN Number *
                 </label>
               </FloatLabel>
-              <div>
+              <div className="w-full">
                 <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="panCardFile">
                   Upload PAN Card Scan *
                 </label>
@@ -275,7 +293,9 @@ export default function ProviderKycForm() {
                   className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
                   required
                 />
-                {formData.panCardFile && <p className="mt-1 text-sm text-green-600 truncate">{formData.panCardFile.name}</p>}
+                {formData.panCardFile && (
+                  <p className="mt-1 text-sm text-green-600 truncate">{formData.panCardFile.name}</p>
+                )}
               </div>
             </div>
           </section>
@@ -285,7 +305,7 @@ export default function ProviderKycForm() {
             <h3 className="text-xl font-semibold border-b border-gray-200 mb-6 pb-2">
               License Card Details
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 sm:gap-6 items-center">
               <FloatLabel>
                 <InputText
                   id="licenseNumber"
@@ -298,7 +318,7 @@ export default function ProviderKycForm() {
                   License Number *
                 </label>
               </FloatLabel>
-              <div>
+              <div className="w-full">
                 <label className="block mb-2 text-gray-700 text-sm font-semibold" htmlFor="licenseCardFile">
                   Upload License Card Scan *
                 </label>
@@ -310,7 +330,9 @@ export default function ProviderKycForm() {
                   className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
                   required
                 />
-                {formData.licenseCardFile && <p className="mt-1 text-sm text-green-600 truncate">{formData.licenseCardFile.name}</p>}
+                {formData.licenseCardFile && (
+                  <p className="mt-1 text-sm text-green-600 truncate">{formData.licenseCardFile.name}</p>
+                )}
               </div>
             </div>
           </section>
@@ -332,7 +354,11 @@ export default function ProviderKycForm() {
                 className="block w-full p-2 border border-gray-300 rounded cursor-pointer"
                 required
               />
-              {formData.providerImage && <p className="mt-1 text-sm text-green-600 truncate">{formData.providerImage.name}</p>}
+              {formData.providerImage && (
+                <p className="mt-1 text-sm text-green-600 truncate">
+                  {formData.providerImage.name}
+                </p>
+              )}
             </div>
           </section>
 
