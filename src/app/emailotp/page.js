@@ -86,7 +86,7 @@ export default function EmailOtpVerificationPage() {
 
     // Redirect to /login after a short delay to show toast
     setTimeout(() => {
-      router.push("/login");
+      router.push("/");
     }, 1600);
   };
 
