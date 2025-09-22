@@ -53,7 +53,7 @@ export default function SimpleOtpPage() {
 
     // Redirect to /emailotp after a short delay to show toast
     setTimeout(() => {
-      router.push("/emailotp");
+      router.push("/emailverification");
     }, 1500);
   };
 
