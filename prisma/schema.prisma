@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma-client" 
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+model User {
+  id                 String @id @default(auto()) @map("_id") @db.ObjectId
+  name               String
+  email              String @unique
+  mobile             String @unique
+  role_id            String
+  registration_status String
+  mobile_verified    Boolean @default(false)
+  email_verified     Boolean @default(false)
+  is_active          Boolean @default(true)
+  updated_at         DateTime @updatedAt
+}
+
+model Otp {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  mobile     String
+  otp        String
+  type       String
+  is_used    Boolean  @default(false)
+  expires_at DateTime
+  created_at DateTime @default(now())
+  verified_at DateTime?
+}
