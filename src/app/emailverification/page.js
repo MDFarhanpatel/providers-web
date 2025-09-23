@@ -37,7 +37,6 @@ export default function EmailVerificationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
     toast.current.show({ severity: "success", summary: "Success", detail: "Email verified, redirecting to OTP page...", life: 3000 });
     setTimeout(() => {
       router.push("/emailotp");
@@ -47,16 +46,16 @@ export default function EmailVerificationForm() {
   const handleForgetPassword = () => {
     toast.current.show({ severity: "info", summary: "Redirecting", detail: "Redirecting to Forgot Password page...", life: 2000 });
     setTimeout(() => {
-      router.push("/forgot-password"); // Redirect after showing toast
+      router.push("/forgot-password");
     }, 2000);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 flex items-center justify-center p-2 sm:p-6">
       <Toast ref={toast} />
-      <div className="bg-white rounded-xl shadow-xl p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-indigo-600">Email Verification</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="bg-white rounded-lg shadow-lg p-4 w-full max-w-md sm:p-8 sm:rounded-xl">
+        <h2 className="text-lg sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-indigo-600">Email Verification</h2>
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           <div className="relative">
             <FloatLabel>
               <InputText
@@ -66,9 +65,10 @@ export default function EmailVerificationForm() {
                 placeholder="Enter your email"
                 type="email"
                 required
-                className="w-full px-3 py-2"
+                className="w-full text-xs sm:text-sm px-2 py-2 sm:px-3"
+                style={{ fontSize: "14px" }}
               />
-              <label htmlFor="email" className="text-gray-700 font-semibold text-xs">Email *</label>
+              <label htmlFor="email" className="text-gray-700 font-medium text-xs sm:text-sm">Email *</label>
             </FloatLabel>
           </div>
           <div className="relative">
@@ -81,26 +81,26 @@ export default function EmailVerificationForm() {
                 feedback={false}
                 placeholder="Enter your password"
                 required
-                inputClassName="w-full px-3 py-2"
+                inputClassName="w-full text-xs sm:text-sm px-2 py-2 sm:px-3"
+                style={{ fontSize: "14px" }}
               />
-              <label htmlFor="password" className="text-gray-700 font-semibold text-xs">Password *</label>
+              <label htmlFor="password" className="text-gray-700 font-medium text-xs sm:text-sm">Password *</label>
             </FloatLabel>
           </div>
           <div className="flex justify-end">
             <button
               type="button"
               onClick={handleForgetPassword}
-              className="text-indigo-500 hover:text-indigo-700 text-sm font-semibold focus:outline-none"
+              className="text-indigo-500 hover:text-indigo-700 text-xs sm:text-sm font-semibold focus:outline-none"
             >
               Forgot Password?
             </button>
           </div>
-
           <Button
             type="submit"
             label="Verify Email"
             icon="pi pi-envelope"
-            className="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white rounded-lg py-3 shadow"
+            className="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white rounded-md sm:rounded-lg py-2 sm:py-3 shadow text-xs sm:text-base"
           />
         </form>
       </div>
