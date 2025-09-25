@@ -65,7 +65,7 @@ export default function EmailVerificationForm() {
                 placeholder="Enter your email"
                 type="email"
                 required
-                className="w-full text-xs sm:text-sm px-2 py-2 sm:px-3"
+                className="w-full text-xs sm:text-sm px-2 py-2 sm:px-4"
                 style={{ fontSize: "14px" }}
               />
               <label htmlFor="email" className="text-gray-700 font-medium text-xs sm:text-sm">Email *</label>
