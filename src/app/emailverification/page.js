@@ -81,7 +81,7 @@ export default function EmailVerificationForm() {
                 feedback={false}
                 placeholder="Enter your password"
                 required
-                inputClassName="w-full text-xs sm:text-sm px-2 py-2 sm:px-3"
+                inputClassName="w-full text-xs sm:text-sm px-2 py-2 sm:px-4"
                 style={{ fontSize: "15px" }}
               />
               <label htmlFor="password" className="text-gray-700 font-medium text-xs sm:text-sm">Password *</label>
